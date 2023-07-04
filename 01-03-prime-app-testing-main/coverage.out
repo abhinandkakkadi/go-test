@@ -1,0 +1,21 @@
+mode: set
+testinggg/main.go:12.13,33.2 6 0
+testinggg/main.go:35.53,39.6 2 1
+testinggg/main.go:39.6,45.11 2 1
+testinggg/main.go:45.11,48.4 2 1
+testinggg/main.go:50.3,51.11 2 1
+testinggg/main.go:55.58,61.44 2 1
+testinggg/main.go:61.44,63.3 1 1
+testinggg/main.go:66.2,67.16 2 1
+testinggg/main.go:67.16,69.3 1 1
+testinggg/main.go:71.2,72.19 2 1
+testinggg/main.go:76.14,81.2 4 1
+testinggg/main.go:83.15,85.2 1 1
+testinggg/main.go:87.36,89.22 1 1
+testinggg/main.go:89.22,91.3 1 1
+testinggg/main.go:94.2,94.11 1 1
+testinggg/main.go:94.11,96.3 1 1
+testinggg/main.go:99.2,99.28 1 1
+testinggg/main.go:99.28,100.15 1 1
+testinggg/main.go:100.15,103.4 1 1
+testinggg/main.go:106.2,106.54 1 1
