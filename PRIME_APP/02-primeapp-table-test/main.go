@@ -14,15 +14,15 @@ func main() {
 	intro()
 
 	// create a channel to indicate when the user wants to quit
-	
+
 	doneChan := make(chan bool)
-	
+
 	// start a goroutine to read user input and run program
 	go readUserInput(doneChan)
 	// readUserInput()
 
 	// block until the doneChan gets a value
-	<- doneChan
+	<-doneChan
 
 	// close the channel
 	close(doneChan)
@@ -37,9 +37,9 @@ func readUserInput(doneChan chan bool) {
 
 	for {
 
-		res,done := checkNumbers(scanner)
+		res, done := checkNumbers(scanner)
 
-		// the same thing can be achieved by using return when done is true 
+		// the same thing can be achieved by using return when done is true
 		// and not use channel at all
 		if done {
 			doneChan <- true
@@ -51,25 +51,25 @@ func readUserInput(doneChan chan bool) {
 	}
 }
 
-func checkNumbers(scanner *bufio.Scanner) (string,bool) {
-	
+func checkNumbers(scanner *bufio.Scanner) (string, bool) {
+
 	// read user input
 	scanner.Scan()
 
 	//  check to see if the user wants to quit
-	if strings.EqualFold(scanner.Text(),"q") {
-		return "",true
+	if strings.EqualFold(scanner.Text(), "q") {
+		return "", true
 	}
 
 	// try to convert what the user typed to int (false since they don't want to quit)
-	numToCheck,err := strconv.Atoi(scanner.Text())
+	numToCheck, err := strconv.Atoi(scanner.Text())
 	if err != nil {
-		return "Please enter a whole number",false
+		return "Please enter a whole number", false
 	}
 
-	_,msg := isPrime(numToCheck)
-	return msg,false
-	 
+	_, msg := isPrime(numToCheck)
+	return msg, false
+
 }
 
 func intro() {

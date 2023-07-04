@@ -2,11 +2,11 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"io"
 	"os"
 	"strings"
 	"testing"
-	"bytes"
 )
 
 func Test_alpha_isPrime(t *testing.T) {
@@ -107,9 +107,9 @@ func Test_checkNumbers(t *testing.T) {
 		{name: "negative number", input: "-5", expected: "Negative numbers are not prime, by definition!"},
 		{name: "prime number", input: "7", expected: "7 is a prime number!"},
 		{name: "non prime number", input: "8", expected: "8 is not a prime number because it is divisible by 2"},
-		{name: "decimal", input:"0.4", expected:"Please enter a whole number"},
-		{name:"quit", input:"q", expected: ""},
-		{name:"QUIT",input:"Q",expected:""},
+		{name: "decimal", input: "0.4", expected: "Please enter a whole number"},
+		{name: "quit", input: "q", expected: ""},
+		{name: "QUIT", input: "Q", expected: ""},
 	}
 
 	for _, e := range tests {
@@ -124,12 +124,11 @@ func Test_checkNumbers(t *testing.T) {
 		res, _ := checkNumbers(reader)
 
 		if !strings.EqualFold(res, e.expected) {
-			t.Errorf("%s: expected %s, but got %s",e.name,e.expected,res)
+			t.Errorf("%s: expected %s, but got %s", e.name, e.expected, res)
 		}
 	}
 
 }
-
 
 func Test_readUserInput(t *testing.T) {
 
@@ -140,9 +139,8 @@ func Test_readUserInput(t *testing.T) {
 
 	stdin.Write([]byte("1\nq\n"))
 
-	go readUserInput(&stdin,doneChan)
-	<- doneChan
+	go readUserInput(&stdin, doneChan)
+	<-doneChan
 	close(doneChan)
-
 
 }

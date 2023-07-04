@@ -19,7 +19,7 @@ func main() {
 	doneChan := make(chan bool)
 
 	// start a goroutine to read user input and run program
-	go readUserInput(os.Stdin,doneChan)
+	go readUserInput(os.Stdin, doneChan)
 	// readUserInput()
 
 	// block until the doneChan gets a value
@@ -32,7 +32,7 @@ func main() {
 	fmt.Println("the end")
 }
 
-func readUserInput(in io.Reader,doneChan chan bool) {
+func readUserInput(in io.Reader, doneChan chan bool) {
 
 	scanner := bufio.NewScanner(in)
 
